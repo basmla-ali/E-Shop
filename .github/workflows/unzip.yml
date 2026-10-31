@@ -1,0 +1,25 @@
+   name: Unzip project
+   on:
+     workflow_dispatch:
+     push:
+       paths:
+         - '.github/workflows/unzip.yml'
+   permissions:
+     contents: write
+   jobs:
+     unzip:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v4
+         - name: Unzip and move files
+           run: |
+             if [ -f E-Shop_ready.zip ]; then
+               unzip -q E-Shop_ready.zip
+               cp -a flutter_application_1/. .
+               rm -rf flutter_application_1 E-Shop_ready.zip
+               git config user.name "github-actions"
+               git config user.email "actions@github.com"
+               git add -A
+               git commit -m "Unzip project files"
+               git push
+             fi
