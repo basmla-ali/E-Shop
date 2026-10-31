@@ -1,4 +1,5 @@
 # E-SHOP — Flutter E-Commerce App
+🔗 **[Live Demo](https://basmla-ali.github.io/E-Shop/)**
 
 A mobile shopping app built with Flutter. Users can sign up, browse products fetched from a REST API, save favorites, and manage a shopping cart with a live order summary.
 
